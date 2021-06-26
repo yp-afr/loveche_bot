@@ -19,7 +19,7 @@ class DBCommands:
     GET_ADMIN = "SELECT admin_id FROM admins WHERE admin_id=$1"
     GET_USERS = "SELECT * FROM items WHERE type=$1 and category=$2"
     GET_RECORD = "SELECT * FROM items WHERE id=$1"
-    ADD_NEW_REVIEW = "INSERT INTO reviews(author_id, caption, posted) VALUES($1,$2,$3,$4,$5,$6,$7)"
+    ADD_NEW_REVIEW = "INSERT INTO reviews(author_id, caption, posted) VALUES($1,$2,$3)"
     GET_REVIEWS = "SELECT * FROM reviews"
 
     async def add_new_review(self, caption):
