@@ -5,7 +5,7 @@ from aiogram import Dispatcher
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 
 from data import config
-from utils.dp_api.sql_instance import create_pool
+from sql_instance import create_pool
 
 logging.basicConfig(format=u'%(filename)s [LINE:%(lineno)d] #%(levelname)-8s [%(asctime)s]  %(message)s',
                     level=logging.INFO)
