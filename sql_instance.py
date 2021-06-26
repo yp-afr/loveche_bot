@@ -10,7 +10,7 @@ logging.basicConfig(format=u'%(filename)s [LINE:%(lineno)d] #%(levelname)-8s [%(
 
 
 async def create_db():
-    create_db_command = open("utils/db_api/create_db.sql", "r").read()
+    create_db_command = open("create_db.sql", "r").read()
     logging.info("Connecting to db")
     conn: asyncpg.Connection = await asyncpg.connect(
         user=PG_USER,
