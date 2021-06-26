@@ -1,8 +1,7 @@
 from aiogram import executor
 
-import markups
-from config import admins
-from load_all import bot
+from data.config import admins
+from loader import bot
 
 
 async def on_shutdown(dp):
