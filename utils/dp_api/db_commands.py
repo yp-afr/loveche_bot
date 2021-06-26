@@ -23,11 +23,11 @@ class DBCommands:
     GET_REVIEWS = "SELECT * FROM reviews"
 
     async def add_new_review(self, caption):
-        author_id = int(types.User.get_current().id)
+        author_id = types.User.get_current().id
         posted = datetime.now()
-        args = author_id, caption, posted
+        args = (author_id, caption, posted)
         command = self.ADD_NEW_REVIEW
-        await self.pool.execute(command, *args)
+        await self.pool.execute(command, args)
 
     async def get_reviews(self):
         command = self.GET_REVIEWS
