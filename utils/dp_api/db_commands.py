@@ -21,13 +21,17 @@ class DBCommands:
     GET_RECORD = "SELECT * FROM items WHERE id=$1"
     ADD_NEW_REVIEW = "INSERT INTO reviews(author_id, caption, posted) VALUES($1,$2,$3)"
     GET_REVIEWS = "SELECT * FROM reviews"
-
+    DEL_REVIEW = "DELETE FROM reviews WHERE id=$1"
     async def add_new_review(self, caption):
         author_id = types.User.get_current().id
         posted = datetime.now()
         args = author_id, caption, posted
         command = self.ADD_NEW_REVIEW
         await self.pool.execute(command, *args)
+
+    async def del_review(self, review_id):
+        command = self.DEL_REVIEW
+        await self.pool.execute(command, review_id)
 
     async def get_reviews(self):
         command = self.GET_REVIEWS
