@@ -12,5 +12,8 @@ async def send_photo(call: types.CallbackQuery, state: FSMContext):
     await call.message.delete()
     data = await state.get_data()
     item: Item = data.get("item")
-    await call.message.answer(names.send_photo_text)
+    if item.category == 'Документы':
+        await call.message.answer(names.send_photo_document_text)
+    else:
+        await call.message.answer(names.send_photo_text)
     await NewItem.WithPhoto.set()
