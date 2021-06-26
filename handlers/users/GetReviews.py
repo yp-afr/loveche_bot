@@ -13,7 +13,7 @@ async def get_reviews(message: types.Message):
     rows = await database.get_reviews()
     if rows:
         for row in rows:
-            text = row['caption'] + "\n\n"
+            text = str(row['caption']) + "\n\n"
             text += f"<a href='tg://user?id={row['author_id']}'>Автор отзыва</a>"
             await message.answer(text)
             await sleep(0.3)
