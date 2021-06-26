@@ -1,3 +1,3 @@
-from db_commands import DBCommands
+from .db_commands import DBCommands
 
 database = DBCommands()
