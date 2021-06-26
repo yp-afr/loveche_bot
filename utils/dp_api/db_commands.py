@@ -1,6 +1,8 @@
-from asyncpg import Connection
-from aiogram import types
 from datetime import datetime
+
+from aiogram import types
+from asyncpg import Connection
+
 from loader import db
 
 
@@ -22,6 +24,7 @@ class DBCommands:
     ADD_NEW_REVIEW = "INSERT INTO reviews(author_id, caption, posted) VALUES($1,$2,$3)"
     GET_REVIEWS = "SELECT * FROM reviews"
     DEL_REVIEW = "DELETE FROM reviews WHERE id=$1"
+
     async def add_new_review(self, caption):
         author_id = types.User.get_current().id
         posted = datetime.now()
