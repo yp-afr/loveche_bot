@@ -1,8 +1,9 @@
 import asyncio
-import asyncpg
 import logging
 
-from data.config import host, PG_USER, PG_PASS
+import asyncpg
+
+from data.config import PG_USER, PG_PASS, host
 
 logging.basicConfig(format=u'%(filename)s [LINE:%(lineno)d] #%(levelname)-8s [%(asctime)s]  %(message)s',
                     level=logging.INFO)
