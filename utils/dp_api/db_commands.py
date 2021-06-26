@@ -19,6 +19,20 @@ class DBCommands:
     GET_ADMIN = "SELECT admin_id FROM admins WHERE admin_id=$1"
     GET_USERS = "SELECT * FROM items WHERE type=$1 and category=$2"
     GET_RECORD = "SELECT * FROM items WHERE id=$1"
+    ADD_NEW_REVIEW = "INSERT INTO reviews(author_id, caption, posted) VALUES($1,$2,$3,$4,$5,$6,$7)"
+    GET_REVIEWS = "SELECT * FROM reviews"
+
+    async def add_new_review(self, caption):
+        author_id = types.User.get_current().id
+        posted = datetime.now()
+        args = author_id, caption, posted
+        command = self.ADD_NEW_REVIEW
+        await self.pool.execute(command, *args)
+
+    async def get_reviews(self):
+        command = self.GET_REVIEWS
+        rows = await self.pool.fetchval(command)
+        return rows
 
     async def add_new_item(self, photo, caption, type_finds, category, author_username):
         author = types.User.get_current()
@@ -27,7 +41,7 @@ class DBCommands:
         args = author_id, author_username, photo, caption, type_finds, category, posted
         command = self.ADD_NEW_ITEM
         # try:
-        record_id = await  self.pool.fetchval(command, *args)
+        record_id = await self.pool.fetchval(command, *args)
         return record_id
 
     async def load_personal_posts(self):

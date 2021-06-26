@@ -9,6 +9,7 @@ from loader import dp
 from states.NewItem import NewItem
 from utils.dp_api.database import database
 from utils.misc.mailing import mailing
+from utils.misc.moderation import moderation
 
 
 @dp.message_handler(state=NewItem.WithPhoto, content_types=types.ContentType.PHOTO)
@@ -23,4 +24,5 @@ async def with_photo(message: types.Message, state: FSMContext):
         else:
             await message.answer(names.post_success_text, reply_markup=Main.markup)
         await mailing(item.caption, item.type_finds, item.category, photo, item.username)
+        await moderation(item.caption, item.type_finds, item.category, photo, item.username)
     await state.reset_state()

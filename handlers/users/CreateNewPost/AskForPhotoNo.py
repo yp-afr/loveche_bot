@@ -9,6 +9,7 @@ from loader import dp
 from states.NewItem import NewItem
 from utils.dp_api.database import database
 from utils.misc.mailing import mailing
+from utils.misc.moderation import moderation
 
 
 @dp.callback_query_handler(state=NewItem.AskForPhoto, text_contains="no")
@@ -22,4 +23,5 @@ async def without_photo(call: types.CallbackQuery, state: FSMContext):
         else:
             await call.message.answer(names.post_success_text, reply_markup=Main.markup)
         await mailing(item.caption, item.type_finds, item.category, None, item.username)
+        await moderation(item.caption, item.type_finds, item.category, None, item.username)
     await state.reset_state()

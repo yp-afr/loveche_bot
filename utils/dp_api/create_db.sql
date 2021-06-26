@@ -15,3 +15,11 @@ create table if not exists admins
     id serial primary key,
     admin_id varchar(50) not null unique
 );
+
+create table if not exists reviews
+(
+    id serial primary key,
+    author_id integer not null,
+    caption varchar(500) not null,
+    posted TIMESTAMP
+);
