@@ -11,4 +11,5 @@ from utils.dp_api.database import database
 async def enter_caption_review(message: types.Message, state: FSMContext):
     caption = message.text
     await database.add_new_review(caption)
+    await message.answer(names.thks_for_review_text)
     await state.reset_state()

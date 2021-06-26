@@ -8,4 +8,5 @@ from states.NewReview import NewReview
 @dp.callback_query_handler(state=NewReview.AskQuestion, text_contains="yes_review")
 async def choose_category(call: types.CallbackQuery):
     await call.message.answer(names.positive_review_text)
+    await call.message.delete()
     await NewReview.EnterCaption.set()
