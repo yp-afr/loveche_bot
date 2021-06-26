@@ -14,4 +14,4 @@ async def delete_post(call: types.CallbackQuery, callback_data: dict):
         msg_id = call.message.message_id
         await bot.delete_message(chat_id, msg_id)
     except Exception:
-        pass
+        await call.message.answer("Упс, что-то пошло не так!")
