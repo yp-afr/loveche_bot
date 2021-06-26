@@ -7,6 +7,7 @@ from .Administration import dp
 from .CreateNewPost import dp
 from .ShowAllPosts import dp
 from .CreateNewReview import dp
+from .GetReviews import dp
 
 from .MyPosts import dp
 from .ChangeItemCall import dp
