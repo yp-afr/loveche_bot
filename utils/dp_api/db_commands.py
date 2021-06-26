@@ -31,7 +31,7 @@ class DBCommands:
 
     async def get_reviews(self):
         command = self.GET_REVIEWS
-        rows = await self.pool.fetchval(command)
+        rows = await self.pool.fetch(command)
         return rows
 
     async def add_new_item(self, photo, caption, type_finds, category, author_username):
