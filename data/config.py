@@ -2,11 +2,13 @@ import os
 
 from dotenv import load_dotenv
 
+from utils.dp_api.database import database
+
 load_dotenv()
 
 TOKEN = os.getenv("TOKEN")
 admins = [
-    os.getenv("ADMIN_ID")
+    database.get_admins()
 ]
 host = os.getenv("PGHOST")
 PG_USER = os.getenv("PG_USER")

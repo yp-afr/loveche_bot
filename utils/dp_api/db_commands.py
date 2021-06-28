@@ -25,6 +25,11 @@ class DBCommands:
     GET_REVIEWS = "SELECT * FROM reviews"
     DEL_REVIEW = "DELETE FROM reviews WHERE id=$1"
 
+    async def get_admins(self):
+        command = self.SHOW_ADMINS
+        row = self.pool.fetch(command)
+        print(row)
+
     async def add_new_review(self, caption):
         author_id = types.User.get_current().id
         posted = datetime.now()
