@@ -5,12 +5,14 @@ from data import names
 from data.config import admins
 from keyboards.default import AdminMain
 from loader import dp, bot
+from utils.dp_api.database import database
 
 
 @dp.message_handler(commands="menu", state='*', user_id=admins)
 async def menu(message: types.Message, state: FSMContext):
+    row = await database.get_admins()
+    print(row)
     await state.reset_state()
-    print(admins)
     user_id = message.from_user.id
     chat_id = "@lovechernihiv"
     try:

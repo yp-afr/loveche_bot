@@ -8,7 +8,7 @@ load_dotenv()
 
 TOKEN = os.getenv("TOKEN")
 admins = [
-    database.get_admins()
+
 ]
 host = os.getenv("PGHOST")
 PG_USER = os.getenv("PG_USER")
