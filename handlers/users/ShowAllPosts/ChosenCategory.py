@@ -17,7 +17,7 @@ async def show_all_choose_category(call: types.CallbackQuery, state: FSMContext)
     await call.message.delete()
     rows = await database.show_items(type_finds=item_type, category=category)
     if rows:
-        result = await database.get_admin(types.User.get_current().id)
+        result = await database.get_admin(str(types.User.get_current().id))
         for row in rows:
             if result:
                 markup = types.InlineKeyboardMarkup(inline_keyboard=[
