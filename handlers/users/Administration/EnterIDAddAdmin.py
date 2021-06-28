@@ -6,7 +6,7 @@ from states.AddAdmin import AddAdmin
 from utils.dp_api.database import database
 
 
-@dp.message_handler(state=AddAdmin.EnterID, text_contains="@")
+@dp.message_handler(state=AddAdmin.EnterID)
 async def add_admin(message: types.Message, state: FSMContext):
     try:
         await database.add_admin(message.text)

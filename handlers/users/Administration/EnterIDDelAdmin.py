@@ -6,7 +6,7 @@ from states.DelAdmin import DelAdmin
 from utils.dp_api.database import database
 
 
-@dp.message_handler(state=DelAdmin.EnterID, text_contains="@")
+@dp.message_handler(state=DelAdmin.EnterID)
 async def delete_admin(message: types.Message, state: FSMContext):
     try:
         await database.del_admin(message.text)
