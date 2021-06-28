@@ -14,8 +14,8 @@ async def moderation(caption, item_type, item_category, photo, author_, post_id)
     text += f"\n\nКонтакты: {author_}"
     markup = types.InlineKeyboardMarkup(inline_keyboard=[
         [types.InlineKeyboardButton(text="Изменить",
-                                    callback_data=change_post_cb.new(item_id=int(row['id']))),
-         types.InlineKeyboardButton(text="Удалить", callback_data=del_post.new(item_id=int(row['id'])))]
+                                    callback_data=change_post_cb.new(item_id=int(post_id))),
+         types.InlineKeyboardButton(text="Удалить", callback_data=del_post.new(item_id=int(post_id)))]
     ])
     for admin in admins:
         if photo:
