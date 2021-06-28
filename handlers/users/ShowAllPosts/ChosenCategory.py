@@ -3,6 +3,7 @@ from asyncio import sleep
 from aiogram import types
 from aiogram.dispatcher import FSMContext
 
+from data.admins import admins
 from handlers.users.misc import change_post_cb, del_post
 from loader import dp
 from states.ShowItem import ShowItem
@@ -17,9 +18,9 @@ async def show_all_choose_category(call: types.CallbackQuery, state: FSMContext)
     await call.message.delete()
     rows = await database.show_items(type_finds=item_type, category=category)
     if rows:
-        result = await database.get_admin(str(types.User.get_current().id))
+
         for row in rows:
-            if result:
+            if types.User.get_current().id in admins:
                 markup = types.InlineKeyboardMarkup(inline_keyboard=[
                     [types.InlineKeyboardButton(text="Изменить",
                                                 callback_data=change_post_cb.new(item_id=int(row['id']))),
