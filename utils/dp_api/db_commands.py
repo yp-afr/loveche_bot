@@ -31,7 +31,7 @@ class DBCommands:
         list_admins = []
         for row in rows:
             list_admins.append(int(row['admin_id']))
-        return
+        return list_admins
 
     async def add_new_review(self, caption):
         author_id = types.User.get_current().id
