@@ -27,8 +27,11 @@ class DBCommands:
 
     async def get_admins(self):
         command = self.SHOW_ADMINS
-        row = await self.pool.fetch(command)
-        return row
+        rows = await self.pool.fetch(command)
+        adms = []
+        for row in rows:
+            adms.append(int(row['admin_id']))
+        return adms
 
     async def add_new_review(self, caption):
         author_id = types.User.get_current().id
