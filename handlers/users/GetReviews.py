@@ -3,7 +3,7 @@ from asyncio import sleep
 from aiogram import types
 
 from data import names
-from data.config import admins
+from data.admins import admins
 from handlers.users.misc import del_review
 from loader import dp
 from utils.dp_api.database import database

@@ -2,10 +2,10 @@ from aiogram import types
 from aiogram.dispatcher import FSMContext
 
 from data import names
-from data.config import admins
+from data.admins import admins
 from keyboards.default import AdminMain
 from loader import dp, bot
-from utils.dp_api.database import database
+
 
 
 @dp.message_handler(commands="menu", state='*', user_id=admins)

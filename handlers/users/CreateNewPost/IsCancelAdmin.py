@@ -2,7 +2,7 @@ from aiogram import types
 from aiogram.dispatcher import FSMContext
 
 from data import names
-from data.config import admins
+from data.admins import admins
 from keyboards.default import AdminMain
 from loader import dp
 from states.NewItem import NewItem

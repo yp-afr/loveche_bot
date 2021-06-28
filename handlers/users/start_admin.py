@@ -5,7 +5,7 @@ from aiogram.utils.exceptions import BadRequest
 
 from keyboards.default import AdminMain
 from data import names
-from data.config import admins
+from data.admins import admins
 from loader import dp, bot
 
 

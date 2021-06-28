@@ -1,6 +1,6 @@
 from aiogram import executor
 
-from data.config import admins
+from data.admins import admins
 from loader import bot
 
 

@@ -1,7 +1,7 @@
 from aiogram import types
 
 from data import names
-from data.config import admins
+from data.admins import admins
 from keyboards.inline import Administration
 from loader import dp
 

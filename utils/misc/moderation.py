@@ -1,6 +1,6 @@
 from asyncio import sleep
 
-from data.config import admins
+from data.admins import admins
 from loader import bot
 from utils.dp_api.database import database
 
