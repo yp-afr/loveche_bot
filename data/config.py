@@ -2,7 +2,7 @@ import os
 
 from dotenv import load_dotenv
 
-from utils.dp_api.database import database
+#from utils.dp_api.database import database
 
 load_dotenv()
 
