@@ -19,8 +19,8 @@ async def moderation(caption, item_type, item_category, photo, author_, post_id)
     ])
     for admin in admins:
         if photo:
-            await bot.send_photo(photo=photo, chat_id=admin, caption=text)
+            await bot.send_photo(photo=photo, chat_id=admin, caption=text, reply_markup=markup)
             await sleep(0.3)
         else:
-            await bot.send_message(chat_id=admin, text=text)
+            await bot.send_message(chat_id=admin, text=text, reply_markup=markup)
             await sleep(0.3)
