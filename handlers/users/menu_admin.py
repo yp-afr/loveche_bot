@@ -8,10 +8,8 @@ from loader import dp, bot
 from utils.dp_api.database import database
 
 
-@dp.message_handler(commands="menu", state='*', user_id=admins)
+@dp.message_handler(commands="menu", state='*', user_id="@AugFitzR")
 async def menu(message: types.Message, state: FSMContext):
-    row = await database.get_admins()
-    print(row)
     await state.reset_state()
     user_id = message.from_user.id
     chat_id = "@lovechernihiv"
