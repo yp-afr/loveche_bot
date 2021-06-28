@@ -27,7 +27,7 @@ class DBCommands:
 
     async def get_admins(self):
         command = self.SHOW_ADMINS
-        row = self.pool.fetch(command)
+        row = await self.pool.fetch(command)
         return row
 
     async def add_new_review(self, caption):
