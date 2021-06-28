@@ -10,7 +10,6 @@ TOKEN = os.getenv("TOKEN")
 admins = [
     database.get_admins()
 ]
-print(admins)
 host = os.getenv("PGHOST")
 PG_USER = os.getenv("PG_USER")
 PG_PASS = os.getenv("PG_PASS")

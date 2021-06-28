@@ -10,6 +10,7 @@ from loader import dp, bot
 @dp.message_handler(commands="menu", state='*', user_id=admins)
 async def menu(message: types.Message, state: FSMContext):
     await state.reset_state()
+    print(admins)
     user_id = message.from_user.id
     chat_id = "@lovechernihiv"
     try:
