@@ -23,5 +23,5 @@ async def without_photo(call: types.CallbackQuery, state: FSMContext):
         else:
             await call.message.answer(names.post_success_text, reply_markup=Main.markup)
         await mailing(item.caption, item.type_finds, item.category, None, item.username)
-        await moderation(item.caption, item.type_finds, item.category, None, item.username)
+        await moderation(item.caption, item.type_finds, item.category, None, item.username, record_id)
     await state.reset_state()

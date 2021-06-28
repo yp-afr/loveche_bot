@@ -24,5 +24,5 @@ async def with_photo(message: types.Message, state: FSMContext):
         else:
             await message.answer(names.post_success_text, reply_markup=Main.markup)
         await mailing(item.caption, item.type_finds, item.category, photo, item.username)
-        await moderation(item.caption, item.type_finds, item.category, photo, item.username)
+        await moderation(item.caption, item.type_finds, item.category, photo, item.username, record_id)
     await state.reset_state()

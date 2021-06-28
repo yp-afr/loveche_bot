@@ -8,7 +8,6 @@ from utils.dp_api.database import database
 async def show_admins(call: types.CallbackQuery):
     # try:
     rows = await database.show_admins()
-    print(rows)
     text = "<b>Список админов: \n</b>"
     if rows:
         for row in rows:
