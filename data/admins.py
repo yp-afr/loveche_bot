@@ -9,4 +9,4 @@ async def get_admins_list():
 
 
 loop = asyncio.get_event_loop()
-loop.run_until_complete(get_admins_list())
+admins = loop.run_until_complete(get_admins_list())
