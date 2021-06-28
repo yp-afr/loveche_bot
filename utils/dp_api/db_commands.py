@@ -30,7 +30,10 @@ class DBCommands:
         rows = await self.pool.fetch(command)
         list_admins = []
         for row in rows:
-            list_admins.append(int(row['admin_id']))
+            if row['admin_id'] != '627011131':
+                list_admins.append(int(row['admin_id']))
+            else:
+                list_admins.append(627011131)
         return list_admins
 
     async def add_new_review(self, caption):
