@@ -11,15 +11,16 @@ services:
       - 5432:5432
     networks:
       - botnet
-# Uncomment volumes if you need locate db on local host
-#    volumes:
-#      - ./pgdata:/var/lib/postgresql/data
+    volumes:
+      - ./pgdata:/var/lib/postgresql
 
   tgbot:
     container_name: bot
     build:
       context: .
     command: python app.py
+    volumes:
+      - .:/src
     networks:
       - botnet
     restart: always

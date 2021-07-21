@@ -24,6 +24,16 @@ class DBCommands:
     ADD_NEW_REVIEW = "INSERT INTO reviews(author_id, caption, posted) VALUES($1,$2,$3)"
     GET_REVIEWS = "SELECT * FROM reviews"
     DEL_REVIEW = "DELETE FROM reviews WHERE id=$1"
+    DELETE_OLD = "DELETE FROM items WHERE posted <= date_trunc('month', current_date-interval '1' month)"
+
+
+    async def delete_old_records(self):
+        command = self.DELETE_OLD
+        try:
+            await self.pool.execute(command)
+        except Exception:
+            pass
+
 
     async def get_admins(self):
         command = self.SHOW_ADMINS

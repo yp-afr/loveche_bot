@@ -14,7 +14,10 @@ async def on_startup(dp):
             await bot.send_message(admin, "Я запущен!")
         except Exception:
             pass
-
+    try:
+        await database.delete_old_records()
+    except Exception:
+        pass
 
 if __name__ == '__main__':
     from handlers import dp
